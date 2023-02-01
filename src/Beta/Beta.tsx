@@ -1,6 +1,6 @@
 import React, {memo} from 'react'
 
-import Tooltip from './Tooltip'
+import {Tooltip} from '../Tooltip/Tooltip'
 import {WarningPin} from '../Pin/Pin'
 
 export interface IBetaProps {
