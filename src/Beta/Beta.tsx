@@ -5,20 +5,20 @@ import {WarningPin} from '../Pin/Pin'
 
 export interface IBetaProps {
     className?: string
-    t: any
+    text: string
 }
 
 export const Beta: React.FC<IBetaProps> = memo(({
                                                     className = '',
-                                                    t
+                                                    text = ''
                                                 }) => {
     return (
         <Tooltip
             className='max-w-content !w-full'
             tooltipNode={(
-                <WarningPin className={className} label={t('beta.title')}/>
+                <WarningPin className={className} label={text}/>
             )}
-            text={t('beta.description')}
+            text={text}
         />
     )
 })

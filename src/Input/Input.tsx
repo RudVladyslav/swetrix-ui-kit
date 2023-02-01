@@ -4,54 +4,38 @@ import _isEmpty from 'lodash/isEmpty'
 import {ExclamationCircleIcon} from '@heroicons/react/24/solid'
 import {Beta} from '../Beta/Beta'
 
-// Input.defaultProps = {
-//     label: '',
-//     hint: '',
-//     placeholder: '',
-//     onChange: () => { },
-//     onKeyDown: () => { },
-//     id: '',
-//     type: '',
-//     className: '',
-//     error: null,
-//     name: '',
-//     disabled: false,
-//     isBeta: false,
-// }
-
-
-interface IInputProps {
-    label: string
-    hint: string
-    placeholder: string
-    onChange: () => void
-    className: string
-    error: boolean | string
-    name: string
-    isBeta: boolean
-    id: string
-    onKeyDown: () => void
-    disabled: boolean
+export interface IInputProps {
+    label?: string
+    hint?: string
+    placeholder?: string
+    onChange?: () => void
+    className?: string
+    error?: boolean | string
+    name?: string
+    isBeta?: boolean
+    id?: string
+    onKeyDown?: () => void
+    disabled?: boolean
     value: string | number
-    type: string
-    t: any
+    type?: string
+    betaText?: string
 }
 
 export const Input: React.FC<IInputProps> = memo(({
-                                                      label,
-                                                      hint,
-                                                      placeholder,
-                                                      type,
-                                                      id,
-                                                      name,
-                                                      className,
-                                                      onChange,
-                                                      error,
+                                                      label = '',
+                                                      hint = '',
+                                                      placeholder = '',
+                                                      type = '',
+                                                      id = '',
+                                                      name = '',
+                                                      className = '',
+                                                      onChange = () => {},
+                                                      error = false,
                                                       value,
-                                                      disabled,
-                                                      onKeyDown,
-                                                      isBeta,
-                                                      t
+                                                      disabled = false,
+                                                      onKeyDown = () => {},
+                                                      isBeta = false,
+                                                      betaText = ''
                                                   }) => {
     const identifier = id || name || type
     const isError = !_isEmpty(error)
@@ -67,7 +51,7 @@ export const Input: React.FC<IInputProps> = memo(({
                     {label}
                     {isBeta && (
                         <div className='ml-5'>
-                            <Beta t={t}/>
+                            <Beta text={betaText}/>
                         </div>
                     )}
                 </label>
