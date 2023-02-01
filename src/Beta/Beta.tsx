@@ -1,7 +1,7 @@
 import React, {memo} from 'react'
 
 import Tooltip from './Tooltip'
-import {WarningPin} from './Pin'
+import {WarningPin} from '../Pin/Pin'
 
 export interface IBetaProps {
     className?: string
